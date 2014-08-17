@@ -2,6 +2,7 @@
 using MonoMac.AppKit;
 using System.Timers;
 using MHTemperature.Contracts;
+using MHTemperature.MacAgent.Translations;
 
 namespace MHTemperature.MacAgent
 {
@@ -11,6 +12,9 @@ namespace MHTemperature.MacAgent
 		protected Timer UpdateTimer;
 		protected Timer TimestampTimer;
 		protected ITemperature LastTemperature;
+
+		protected int TemperatureUpdateInterval = 1000 * 60 * 15;
+		protected int TimestampUpdateInterval = 1000 * 60 * 1;
 
 		protected string SwimmerText = 		"Schwimmerbecken  ";
 		protected string NonSwimmerText = 	"Nichtschwimmerbecken  ";
@@ -38,20 +42,21 @@ namespace MHTemperature.MacAgent
 			Menu.AddItem(Kids);
 			Menu.AddItem(LastUpdate);
 
-			menu.AddItem(new NSMenuItem("Quit", (a, b) => Environment.Exit(0)));
+			Menu.AddItem(NSMenuItem.SeparatorItem);
+			Menu.AddItem(new NSMenuItem(Translation.Quit.ToString(), (a, b) => Environment.Exit(0)));
 
 			// fill with data
 			UpdateLastTemperature();
 
 			// update every 15 minutes
-			UpdateTimer = new Timer(1000 * 60 * 15);
+			UpdateTimer = new Timer(TemperatureUpdateInterval);
 			UpdateTimer.Elapsed += (sender, e) => {
 				menu.InvokeOnMainThread(UpdateLastTemperature);
 			};
 			UpdateTimer.Start();
 
 			// update the timestamp every minute
-			TimestampTimer = new Timer(1000 * 60 * 1);
+			TimestampTimer = new Timer(TimestampUpdateInterval);
 			TimestampTimer.Elapsed += (sender, e) => {
 				menu.InvokeOnMainThread(UpdateTimestampUI);
 			};

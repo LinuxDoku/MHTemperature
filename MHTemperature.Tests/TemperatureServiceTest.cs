@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 
 namespace MHTemperature.Tests
 {
@@ -23,4 +22,3 @@ namespace MHTemperature.Tests
 		}
 	}
 }
-
