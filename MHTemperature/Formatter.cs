@@ -10,7 +10,7 @@ namespace MHTemperature
 		}
 
 		public static string FormatDateTime(DateTime dateTime) {
-			return dateTime.Humanize();
+			return dateTime.Humanize(false);
 		}
 	}
 }
