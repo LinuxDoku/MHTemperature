@@ -1,8 +1,5 @@
-﻿using System;
-using System.Drawing;
-using MonoMac.Foundation;
+﻿using MonoMac.Foundation;
 using MonoMac.AppKit;
-using MonoMac.ObjCRuntime;
 
 namespace MHTemperature.MacAgent
 {
@@ -25,8 +22,7 @@ namespace MHTemperature.MacAgent
 			icon.Image = NSImage.FromStream(System.IO.File.OpenRead(NSBundle.MainBundle.ResourcePath + "/SwimmingPool.icns"));
 			icon.HighlightMode = true;
 
-			// temperature handler
-			var temperatureHandler = new MainMenu(menu);
+			new MainMenu(menu);
 		}
 	}
 }

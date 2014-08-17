@@ -4,7 +4,6 @@ using HtmlAgilityPack;
 using System.Linq;
 using MHTemperature.Contracts;
 using System.Globalization;
-using System.Security.AccessControl;
 
 namespace MHTemperature
 {
