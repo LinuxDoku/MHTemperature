@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace MHTemperature
 {
-	public class TemperatureService
+	public class TemperatureService : ITemperatureService
 	{
 		public const string WebServiceUrl = "http://www.stadt.noerdlingen.de/sonstige/temp_freibad/temp_freibad.php";
 

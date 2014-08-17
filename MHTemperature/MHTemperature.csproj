@@ -35,6 +35,7 @@
     <Compile Include="Temperature.cs" />
     <Compile Include="Contracts\ITemperature.cs" />
     <Compile Include="Formatter.cs" />
+    <Compile Include="Contracts\ITemperatureService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http" />

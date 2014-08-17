@@ -8,7 +8,7 @@ namespace MHTemperature.MacAgent
 {
 	public class MainMenu
 	{
-		protected TemperatureService TemperatureService;
+		protected ITemperatureService TemperatureService;
 		protected Timer UpdateTimer;
 		protected Timer TimestampTimer;
 		protected ITemperature LastTemperature;
