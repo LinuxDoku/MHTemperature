@@ -84,7 +84,7 @@ namespace MHTemperature
 			dateTime = dateTime.Replace(", ", "");
 
 			// "16.8.2014 12:56"
-			return DateTime.ParseExact(dateTime, "d.M.yyyy HH:mm", CultureInfo.InvariantCulture);
+			return DateTime.ParseExact(dateTime, "d.M.yyyy H:mm", CultureInfo.InvariantCulture);
 		}
 
 		/// <summary>

@@ -9,6 +9,7 @@ obj/x86/
 obj/x64/
 Debug/
 Release/
+XCode/
 
 # Xamarin Studio
 *.userprefs
