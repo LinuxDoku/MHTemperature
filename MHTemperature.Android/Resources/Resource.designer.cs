@@ -45,7 +45,13 @@ namespace MHTemperature.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_action_refresh = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int monoandroidsplash = 2130837506;
 			
 			static Drawable()
 			{
@@ -60,8 +66,17 @@ namespace MHTemperature.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			// aapt resource value: 0x7f070003
+			public const int ActionRefresh = 2131165187;
+			
+			// aapt resource value: 0x7f070001
+			public const int SwimmerTemperature = 2131165185;
+			
+			// aapt resource value: 0x7f070000
+			public const int SwimmerTemperatureProgress = 2131165184;
+			
+			// aapt resource value: 0x7f070002
+			public const int stackView1 = 2131165186;
 			
 			static Id()
 			{
@@ -89,14 +104,30 @@ namespace MHTemperature.Android
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int MainActivityMenu = 2131099648;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
 			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			public const int ActionRefresh = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			public const int app_name = 2130968576;
 			
 			static String()
 			{
@@ -104,6 +135,22 @@ namespace MHTemperature.Android
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Mono_Android_Theme_Splash = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

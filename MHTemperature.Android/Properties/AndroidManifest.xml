@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="MHTemperature.Android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="app.linuxdoku.mhtemperature.android">
 	<uses-sdk />
-	<application android:label="MHTemperature.Android">
+	<application android:icon="@drawable/icon" android:label="Wasser Freibad Marienhöhe">
 	</application>
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

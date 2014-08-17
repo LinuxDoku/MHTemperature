@@ -50,6 +50,6 @@ Global
 		{CA42733C-7BCB-4BCD-B366-9E57CA6CB179}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MHTemperature.MacAgent\MHTemperature.MacAgent.csproj
+		StartupItem = MHTemperature.Android\MHTemperature.Android.csproj
 	EndGlobalSection
 EndGlobal
