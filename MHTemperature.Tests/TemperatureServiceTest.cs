@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using MHTemperature.Contracts;
 
 namespace MHTemperature.Tests
 {
@@ -14,6 +15,7 @@ namespace MHTemperature.Tests
 			var service = new TemperatureService();
 			var temperature = service.Current();
 
+			Assert.IsInstanceOf(typeof(ITemperatureService), service);
 			Assert.NotNull(temperature);
 			Assert.NotNull(temperature.Swimmer);
 			Assert.NotNull(temperature.NonSwimmer);
