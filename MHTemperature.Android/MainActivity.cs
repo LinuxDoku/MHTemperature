@@ -1,14 +1,10 @@
-﻿using System;
-
+﻿
 using Android.App;
-using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
 using MHTemperature;
 using MHTemperature.Contracts;
-using Java.Util;
 using System.Collections.Generic;
 
 namespace MHTemperature.Android
