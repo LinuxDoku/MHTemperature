@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using MHTemperature;
 using MHTemperature.Contracts;
+using Java.Util;
+using System.Collections.Generic;
 
 namespace MHTemperature.Android
 {
@@ -25,8 +27,7 @@ namespace MHTemperature.Android
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			if(item.ItemId == Resource.Id.ActionRefresh) {
-				UpdateTemperature();
-				RedrawTemperature();
+				UpdateLastTemperature();
 			}
 
 			return base.OnOptionsItemSelected(item);
@@ -36,13 +37,10 @@ namespace MHTemperature.Android
 		{
 			base.OnCreate(bundle);
 
-			SetupTemperatureService();
-
-			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
-			UpdateTemperature();
-			RedrawTemperature();
+			SetupTemperatureService();
+			UpdateLastTemperature();
 		}
 
 		protected void SetupTemperatureService()
@@ -50,34 +48,53 @@ namespace MHTemperature.Android
 			TemperatureService = new TemperatureService();
 		}
 
-		protected void UpdateTemperature() 
+		protected void UpdateLastTemperature() 
 		{
 			if(TemperatureService != null) {
 				LastTemperature = TemperatureService.Current();
+
+				UpdateTemperatureUI();
 			}
 		}
 
-		protected void RedrawTemperature()
+		protected void UpdateTemperatureUI()
 		{
 			if(LastTemperature != null) {
-				RedrawTemperatureText(Resource.Id.SwimmerTemperature, LastTemperature.Swimmer);
-				RedrawTemperatureProgress(Resource.Id.SwimmerTemperatureProgress, LastTemperature.Swimmer);
+				var UpdateTextMap = new Dictionary<int, float>() {
+					{ Resource.Id.SwimmerTemperatureText, LastTemperature.Swimmer },
+					{ Resource.Id.NonSwimmerTemperatureText, LastTemperature.NonSwimmer },
+					{ Resource.Id.KidsTemperatureText, LastTemperature.KidSplash },
+				};
+
+				foreach(var map in UpdateTextMap) {
+					RedrawTemperatureText(map.Key, map.Value);
+				}
+
+				var UpdateProgressMap = new Dictionary<int, float>() {
+					{ Resource.Id.SwimmerTemperatureProgress, LastTemperature.Swimmer },
+					{ Resource.Id.NonSwimmerTemperatureProgress, LastTemperature.NonSwimmer },
+					{ Resource.Id.KidsTemperatureProgress, LastTemperature.KidSplash },
+				};
+
+				foreach(var map in UpdateProgressMap) {
+					RedrawTemperatureProgress(map.Key, map.Value);
+				}
 			}
 		}
 
-		protected void RedrawTemperatureProgress(string viewId, float value)
+		protected void RedrawTemperatureProgress(int viewId, float temperature)
 		{
 			var progress = (ProgressBar)FindViewById(viewId);
 			if(progress != null) {
-				progress.Max = 50;
-				progress.Progress = (int)value;
+				progress.Max = 40;
+				progress.Progress = (int)temperature;
 			}
 		}
 
-		protected void RedrawTemperatureText(string viewId, float value) {
+		protected void RedrawTemperatureText(int viewId, float temperature) {
 			var text = (TextView)FindViewById(viewId);
 			if(text != null) {
-				text.Text = Formatter.FormatTemperature(value);
+				text.Text = Formatter.FormatTemperature(temperature);
 			}
 		}
 	}

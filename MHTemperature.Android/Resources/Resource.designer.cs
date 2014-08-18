@@ -66,17 +66,29 @@ namespace MHTemperature.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070003
-			public const int ActionRefresh = 2131165187;
+			// aapt resource value: 0x7f070007
+			public const int ActionRefresh = 2131165191;
 			
-			// aapt resource value: 0x7f070001
-			public const int SwimmerTemperature = 2131165185;
+			// aapt resource value: 0x7f070004
+			public const int KidsTemperatureProgress = 2131165188;
+			
+			// aapt resource value: 0x7f070005
+			public const int KidsTemperatureText = 2131165189;
+			
+			// aapt resource value: 0x7f070002
+			public const int NonSwimmerTemperatureProgress = 2131165186;
+			
+			// aapt resource value: 0x7f070003
+			public const int NonSwimmerTemperatureText = 2131165187;
 			
 			// aapt resource value: 0x7f070000
 			public const int SwimmerTemperatureProgress = 2131165184;
 			
-			// aapt resource value: 0x7f070002
-			public const int stackView1 = 2131165186;
+			// aapt resource value: 0x7f070001
+			public const int SwimmerTemperatureText = 2131165185;
+			
+			// aapt resource value: 0x7f070006
+			public const int stackView1 = 2131165190;
 			
 			static Id()
 			{
