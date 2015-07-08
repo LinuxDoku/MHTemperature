@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -34,16 +34,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemperatureServiceTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\MHTemperature\MHTemperature.csproj">
-      <Project>{5A1AD107-5B17-443B-8EE9-7E646201A855}</Project>
-      <Name>MHTemperature</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\MHTemperature\MHTemperature.csproj">
+      <Project>{5a1ad107-5b17-443b-8ee9-7e646201a855}</Project>
+      <Name>MHTemperature</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

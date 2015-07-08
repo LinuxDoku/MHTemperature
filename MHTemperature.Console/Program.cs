@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace MHTemperature.ConsoleHost
 {
-	class MainClass
+	public class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -18,6 +18,7 @@ namespace MHTemperature.ConsoleHost
 				Console.WriteLine("Kinderbecken                      {0:F2} °C", temperature.KidSplash);
 				Console.WriteLine();
 				Console.WriteLine("Zuletzt aktualisiert {0}", temperature.DateTime.ToString(CultureInfo.GetCultureInfoByIetfLanguageTag("de")));
+			    Console.ReadLine();
 			} else {
 				Console.WriteLine("Huch, die aktuelle Wassertemperatur konnte leider nicht abgerufen werden.");
 			}
