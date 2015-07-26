@@ -15,3 +15,5 @@ AppStore/
 # Xamarin Studio
 *.userprefs
 .userprefs
+*.user
+*.suo

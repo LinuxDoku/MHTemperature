@@ -3,7 +3,7 @@ using MHTemperature.Contracts;
 using Residata.Platform.Contract.Data.Attribute;
 
 namespace MHTemperature.Service.Model {
-    [TableName("Temperatures")]
+    [TableName("Temperature")]
     public class Temperature : ITemperature {
         public int Id { get; set; }
 
@@ -12,6 +12,7 @@ namespace MHTemperature.Service.Model {
         public float KidSplash { get; set; }
         public DateTime DateTime { get; set; }
 
+        [CreatedAt]
         public DateTime SavedAt { get; set; }
 
         public static Temperature CreateFrom(ITemperature temperature) {
