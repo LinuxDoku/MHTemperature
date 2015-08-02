@@ -1,11 +1,21 @@
-﻿using System.Diagnostics;
-using Residata.Platform.Server.Worker;
+﻿using Topshelf;
 
 namespace MHTemperature.Service.Web {
-    public class Program : Worker {
+    public class Program {
         public static void Main(string[] args) {
-            Worker.Main(args);
-            Process.GetCurrentProcess().WaitForExit();
+            HostFactory.Run(x => {
+                x.Service<Service>();
+
+                x.SetServiceName("MHTemperature.Service.Web");
+                x.SetDisplayName("Freibad Marienhöhe Temperatur Web Service");
+
+                x.RunAsLocalSystem();
+                x.StartAutomatically();
+
+                x.EnableServiceRecovery(y => {
+                    y.RestartService(5);
+                });
+            });
         }
     }
 }

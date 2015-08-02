@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Residata.Platform.Web", "..
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{29FAFB2C-2AF8-4622-BBA9-54BA86EDDA46}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MHTemperature.Service.Web.Installer", "MHTemperature.Service.Web.Installer\MHTemperature.Service.Web.Installer.vdproj", "{7D023D7A-21D1-4D69-96DC-697A46A5C856}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -252,6 +254,15 @@ Global
 		{CB63385F-42DB-4053-979B-C2E90D360F9F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CB63385F-42DB-4053-979B-C2E90D360F9F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CB63385F-42DB-4053-979B-C2E90D360F9F}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.AppStore|Any CPU.ActiveCfg = Release
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.AppStore|Mixed Platforms.ActiveCfg = Release
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.AppStore|x86.ActiveCfg = Release
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Debug|Any CPU.ActiveCfg = Debug
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Debug|x86.ActiveCfg = Debug
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Release|Any CPU.ActiveCfg = Release
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Release|Mixed Platforms.ActiveCfg = Release
+		{7D023D7A-21D1-4D69-96DC-697A46A5C856}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

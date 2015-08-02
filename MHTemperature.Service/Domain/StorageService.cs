@@ -23,8 +23,8 @@ namespace MHTemperature.Service.Domain {
             });
 
             // create database
-            _databaseManager.Database.CreateDatabase("freibadmh_20150710");
-            _databaseManager.Database.ChangeDatabase("freibadmh_20150710");
+            _databaseManager.Database.CreateDatabase("freibadmh");
+            _databaseManager.Database.ChangeDatabase("freibadmh");
 
             // create table initial
             var table = _databaseManager.Models.GetTable<Model.Temperature>();
@@ -46,6 +46,10 @@ namespace MHTemperature.Service.Domain {
         public IEnumerable<Model.Temperature> GetYesterday() {
             return GetDay(DateTime.Today.AddDays(-2), DateTime.Today.AddDays(-1));
         }
+
+        public IEnumerable<Model.Temperature> GetDay(DateTime day) {
+            return GetDay(day.AddDays(-1), day);
+        } 
 
         public IEnumerable<Model.Temperature> GetDay(DateTime start, DateTime end) {
             return _dataContext.Find().Where(x => x.DateTime > start && x.DateTime <= end)

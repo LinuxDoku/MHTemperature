@@ -18,8 +18,8 @@ namespace MHTemperature.Service.Web.Web.Controller {
         public IndexViewModel IndexAction() {
             var viewModel = new IndexViewModel();
 
-            var today = _storageService.GetToday().ToArray();
-            var yesterday = _storageService.GetYesterday().ToArray();
+            var today = _storageService.GetDay(DateTime.Now).ToArray();
+            var yesterday = _storageService.GetDay(DateTime.Now.AddDays(-1)).ToArray();
 
             Parallel.Invoke(
                 () => viewModel.Swimmer = CreatePoolViewModel(today, yesterday, x => x.Swimmer),
@@ -31,14 +31,15 @@ namespace MHTemperature.Service.Web.Web.Controller {
         }
 
         private PoolViewModel CreatePoolViewModel(MHTemperature.Service.Model.Temperature[] today, MHTemperature.Service.Model.Temperature[] yesterday, Func<MHTemperature.Service.Model.Temperature, float> select) {
-            PoolViewModel model = null;
+            var model = new PoolViewModel();
 
             if (today.Any()) {
-                model = new PoolViewModel {
-                    Current = select(today.Last()),
-                    TodayAverage = today.Average(select),
-                    YesterdayAverage = yesterday.Average(select)
-                };
+                model.Current = select(today.Last());
+                model.TodayAverage = (float) Math.Round(today.Average(select), 2);
+            }
+
+            if (yesterday.Any()) {
+                model.YesterdayAverage = (float) Math.Round(yesterday.Average(select), 2);
             }
 
             return model;

@@ -1,9 +1,11 @@
 ﻿using MHTemperature.Service.Task;
 using Residata.Platform.Contract.Application;
+using Residata.Platform.Contract.Dependency.Attribute;
 using Residata.Platform.Contract.Task;
 using Residata.Platform.Core.Application;
 
 namespace MHTemperature.Service {
+    [Export]
     public class ServiceApplication : ApplicationBase {
         public override string Name {
             get { return "MHTemperature.Service"; }

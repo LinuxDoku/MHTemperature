@@ -1,8 +1,7 @@
-﻿using Residata.Platform.Server.Worker;
-using Topshelf;
+﻿using Topshelf;
 
 namespace MHTemperature.Service {
-    public class Program : Worker {
+    public class Program {
         public static void Main(string[] args) {
             HostFactory.Run(x => {
                 x.Service<Service>();
