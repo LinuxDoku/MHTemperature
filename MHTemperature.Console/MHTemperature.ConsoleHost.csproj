@@ -8,7 +8,7 @@
     <RootNamespace>MHTemperature.ConsoleHost</RootNamespace>
     <AssemblyName>MHTemperature.Console</AssemblyName>
     <StartupObject>MHTemperature.ConsoleHost.Program</StartupObject>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
