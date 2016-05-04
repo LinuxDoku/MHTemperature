@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace MHTemperature.Service.Infrastructure {
     /// <summary>
     /// Logger, which logs into the windows event log.
     /// </summary>
-    public class Logger {
+    public static class Logger {
         static Logger() {
-            Trace.Listeners.Add(new EventLogTraceListener(Assembly.GetExecutingAssembly().FullName));
+            Trace.Listeners.Add(new EventLogTraceListener("MHTemperature Service"));
 
             if (Environment.UserInteractive) {
                 Trace.Listeners.Add(new ConsoleTraceListener());

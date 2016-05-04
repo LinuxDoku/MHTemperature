@@ -3,7 +3,7 @@ using MHTemperature.Service.Extensions;
 using Topshelf;
 
 namespace MHTemperature.Service {
-    public class Program {
+    public static class Program {
         public static void Main(string[] args) {
             AppDomain.CurrentDomain.SetupLogging();
 
