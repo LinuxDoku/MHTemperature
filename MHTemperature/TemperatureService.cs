@@ -23,12 +23,7 @@ namespace MHTemperature {
         /// <returns>The html document.</returns>
         protected string GetHtml() {
             var httpClient = new HttpClient();
-
-            try {
-                return httpClient.GetStringAsync(WebServiceUrl).GetAwaiter().GetResult();
-            } catch (Exception e) {
-                return null;
-            }
+            return httpClient.GetStringAsync(WebServiceUrl).GetAwaiter().GetResult();
         }
 
         /// <summary>
