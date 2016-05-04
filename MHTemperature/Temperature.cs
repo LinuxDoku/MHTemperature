@@ -1,7 +1,7 @@
 ﻿using MHTemperature.Contracts;
 
 namespace MHTemperature {
-    public class Temperature : ITemperature {
+    internal class Temperature : ITemperature {
         /// <summary>
         /// Schwimmerbecken.
         /// </summary>
@@ -24,7 +24,6 @@ namespace MHTemperature {
         /// Zeitpunkt der Erfassung.
         /// </summary>
         /// <value>DateTime of the temperatures.</value>
-        public System.DateTime DateTime { get; set; }
+        public System.DateTime MeasuredAt { get; set; }
     }
 }
-

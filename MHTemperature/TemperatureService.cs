@@ -52,7 +52,7 @@ namespace MHTemperature {
             if (rows.Count() >= 6) {
                 // time
                 var timeRow = rows.First();
-                resultTemperature.DateTime = ParseDateTime(timeRow.Descendants("b").Last().InnerText);
+                resultTemperature.MeasuredAt = ParseDateTime(timeRow.Descendants("b").Last().InnerText);
 
                 // temperatures
                 var temperatureRows = rows.Skip(3).Take(3);
@@ -82,7 +82,7 @@ namespace MHTemperature {
         public DateTime ParseDateTime(string dateTime) {
             // "16.8.2014, 12:56 Uhr"
             dateTime = dateTime.Replace(" Uhr", "");
-            dateTime = dateTime.Replace(",", "");
+            dateTime = dateTime.Replace(", ", "");
 
             var matches = Regex.Matches(dateTime, "(?<day>[0-9]{1,2}).(?<month>[0-9]{1,2}).(?<year>[0-9]{4}) (?<hour>[0-9]{1,2}):(?<minute>[0-9]{1,2})", RegexOptions.Compiled);
             return new DateTime(GetInt(matches, "year"), GetInt(matches, "month"), GetInt(matches, "day"), GetInt(matches, "hour"), GetInt(matches, "minute"), 0);

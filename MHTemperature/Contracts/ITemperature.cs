@@ -24,6 +24,6 @@ namespace MHTemperature.Contracts {
         /// Zeitpunkt der Erfassung.
         /// </summary>
         /// <value>DateTime of the temperatures.</value>
-        DateTime DateTime { get; }
+        DateTime MeasuredAt { get; }
     }
 }

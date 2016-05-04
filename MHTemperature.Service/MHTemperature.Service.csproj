@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\IService.cs" />
+    <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\Model\Temperature.cs" />
     <Compile Include="Extensions\AppDomainExtensions.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\Scheduler.cs" />
@@ -87,9 +89,7 @@
       <Name>MHTemperature</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
