@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading;
 using MHTemperature.Service.Contract;
-using MHTemperature.Service.Infrastructure;
 
-namespace MHTemperature.Service {
+namespace MHTemperature.Service.Infrastructure {
     public abstract class ScheduledServiceBase : IService {
         private CancellationTokenSource _cancellationTokenSource;
 
