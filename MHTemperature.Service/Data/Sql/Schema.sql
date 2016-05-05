@@ -1,4 +1,13 @@
-﻿CREATE TABLE public.temperatures
+﻿-- temperature id sequence
+CREATE SEQUENCE public.temperature_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 7
+  CACHE 1;
+
+-- temperature table
+CREATE TABLE public.temperatures
 (
   id integer NOT NULL DEFAULT nextval('temperature_id_seq'::regclass),
   swimmer numeric(4,2),
