@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace MHTemperature.Service.Infrastructure {
     /// <summary>
@@ -7,7 +8,7 @@ namespace MHTemperature.Service.Infrastructure {
     /// </summary>
     public static class Logger {
         static Logger() {
-            Trace.Listeners.Add(new EventLogTraceListener("MHTemperature Service"));
+            Trace.Listeners.Add(new EventLogTraceListener(Assembly.GetEntryAssembly().GetName().Name));
 
             if (Environment.UserInteractive) {
                 Trace.Listeners.Add(new ConsoleTraceListener());
