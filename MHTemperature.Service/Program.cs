@@ -1,5 +1,6 @@
 ﻿using System;
 using MHTemperature.Service.Extensions;
+using MHTemperature.Service.Infrastructure;
 using Topshelf;
 
 namespace MHTemperature.Service {
@@ -8,9 +9,12 @@ namespace MHTemperature.Service {
             AppDomain.CurrentDomain.SetupLogging();
 
             HostFactory.Run(host => {
-                host.Service<TemperatureCrawlService>(setup => {
-                    setup.ConstructUsing(name => new TemperatureCrawlService());
-
+                host.Service<ServiceHost>(setup => {
+                    setup.ConstructUsing(name => new ServiceHost(
+                        new TemperatureCrawlService(),
+                        new WebService()
+                    ));
+                    
                     setup.WhenStarted(service => service.Start());
                     setup.WhenStopped(service => service.Stop());
                 });

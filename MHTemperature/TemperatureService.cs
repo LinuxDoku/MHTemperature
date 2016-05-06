@@ -56,12 +56,16 @@ namespace MHTemperature {
                     var row = temperatureRows.ElementAt(i);
                     var value = ParseTemperature(row.Descendants("b").Last().InnerText);
 
-                    if (i == 0) {
-                        resultTemperature.Swimmer = value;
-                    } else if (i == 1) {
-                        resultTemperature.NonSwimmer = value;
-                    } else {
-                        resultTemperature.KidSplash = value;
+                    switch (i) {
+                        case 0:
+                            resultTemperature.Swimmer = value;
+                            break;
+                        case 1:
+                            resultTemperature.NonSwimmer = value;
+                            break;
+                        case 2:
+                            resultTemperature.KidSplash = value;
+                            break;
                     }
                 }
             }
