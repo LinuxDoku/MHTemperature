@@ -18,6 +18,7 @@ namespace MHTemperature.Service {
             }
             catch (Exception ex) {
                 Logger.Error("Could not receive current temperature from webservice!", ex);
+                return;
             }
 
             try {

@@ -14,14 +14,29 @@ namespace MHTemperature {
         /// Get the current temperature.
         /// </summary>
         public ITemperature Current() {
-            return ParseHtml(GetHtml());
+            string html;
+
+            try {
+                html = GetHtml();
+            }
+            catch (Exception ex) {
+                throw new Exception("Could not receive html from webservice!", ex);
+            }
+
+            try {
+                var result = ParseHtml(html);
+                return result;
+            }
+            catch (Exception ex) {
+                throw new Exception($"Could not parse html from webservice! {html}!", ex);
+            }
         }
 
         /// <summary>
         /// Get the data from webservice.
         /// </summary>
         /// <returns>The html document.</returns>
-        protected string GetHtml() {
+        private string GetHtml() {
             var httpClient = new HttpClient();
             return httpClient.GetStringAsync(WebServiceUrl).GetAwaiter().GetResult();
         }
@@ -31,7 +46,7 @@ namespace MHTemperature {
         /// </summary>
         /// <returns>The parsed temperature.</returns>
         /// <param name="html">Html document as string.</param>
-        protected ITemperature ParseHtml(string html) {
+        private ITemperature ParseHtml(string html) {
             if (string.IsNullOrEmpty(html)) {
                 return null;
             }
