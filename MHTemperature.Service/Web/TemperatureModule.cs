@@ -1,10 +1,8 @@
 ﻿using System;
 using MHTemperature.Service.Data.Context;
-using Nancy;
-using Newtonsoft.Json;
 
 namespace MHTemperature.Service.Web {
-    public class TemperatureModule : NancyModule {
+    public class TemperatureModule : ApiModuleBase {
         /// <summary>
         /// Temperature Context Factory.
         /// </summary>
@@ -34,12 +32,6 @@ namespace MHTemperature.Service.Web {
 
         public object Temperatures(DateTime from, DateTime to) {
             return Db.GetTemperaturesMeasuredInRange(from, to);
-        }
-
-        private Response Json(object obj) {
-            var response = (Response) JsonConvert.SerializeObject(obj);
-            response.ContentType = "application/json";
-            return response;
         }
     }
 }

@@ -107,10 +107,13 @@
     <Compile Include="Infrastructure\Scheduler.cs" />
     <Compile Include="Infrastructure\ScheduledServiceBase.cs" />
     <Compile Include="Infrastructure\ServiceHost.cs" />
+    <Compile Include="Infrastructure\ServiceStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemperatureCrawlService.cs" />
     <Compile Include="WebService.cs" />
+    <Compile Include="Web\ApiModuleBase.cs" />
+    <Compile Include="Web\ServiceModule.cs" />
     <Compile Include="Web\Startup.cs" />
     <Compile Include="Web\TemperatureModule.cs" />
   </ItemGroup>

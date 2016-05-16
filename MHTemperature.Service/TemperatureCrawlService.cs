@@ -10,9 +10,10 @@ namespace MHTemperature.Service {
             return new TemperatureContext();
         }
 
+        protected override string Name => nameof(TemperatureCrawlService);
+
         protected override TimeSpan PlanNextExecution() {
             var lastTemperature = CreateContext().GetLastTemperature();
-
             return RetrievalPlanner.Next(lastTemperature, DateTime.Now);
         }
 
