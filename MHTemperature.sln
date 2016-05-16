@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{29FAFB2C-2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MHTemperature.Service", "MHTemperature.Service\MHTemperature.Service.csproj", "{0AF9AAF1-C80C-4F00-A3E9-BE67F805B8D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MHTemperature.Service.Tests", "MHTemperature.Service.Tests\MHTemperature.Service.Tests.csproj", "{278FF2CB-2798-4637-9ED1-98C433709396}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -221,6 +223,46 @@ Global
 		{0AF9AAF1-C80C-4F00-A3E9-BE67F805B8D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0AF9AAF1-C80C-4F00-A3E9-BE67F805B8D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{0AF9AAF1-C80C-4F00-A3E9-BE67F805B8D9}.Release|x86.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Ad-Hoc|x86.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.AppStore|x86.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Debug|x86.Build.0 = Debug|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|iPhone.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|x86.ActiveCfg = Release|Any CPU
+		{278FF2CB-2798-4637-9ED1-98C433709396}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

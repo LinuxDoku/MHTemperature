@@ -1,12 +1,20 @@
 ﻿using System;
 using MHTemperature.Contracts;
-using MHTemperature.Service.Data;
+using MHTemperature.Service.Data.Context;
 using MHTemperature.Service.Data.Model;
 using MHTemperature.Service.Infrastructure;
 
 namespace MHTemperature.Service {
     public class TemperatureCrawlService : ScheduledServiceBase {
-        protected override TimeSpan Interval => TimeSpan.FromMinutes(15);
+        private TemperatureContext CreateContext() {
+            return new TemperatureContext();
+        }
+
+        protected override TimeSpan PlanNextExecution() {
+            var lastTemperature = CreateContext().GetLastTemperature();
+
+            return RetrievalPlanner.Next(lastTemperature, DateTime.Now);
+        }
 
         protected override void Execute() {
             ITemperature current = null;
@@ -23,17 +31,11 @@ namespace MHTemperature.Service {
 
             try {
                 temperature = Temperature.CreateFrom(current);
-                SaveToDatabase(temperature);
+                CreateContext().Save(temperature);
             }
             catch (Exception ex) {
                 Logger.Error($"Could not save temperature to database! {temperature}", ex);
             }
-        }
-
-        private void SaveToDatabase(Temperature temperature) {
-            var db = new Database();
-            db.Temperatures.Add(temperature);
-            db.SaveChanges();
         }
     }
 }

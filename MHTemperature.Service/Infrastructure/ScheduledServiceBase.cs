@@ -6,11 +6,12 @@ namespace MHTemperature.Service.Infrastructure {
     public abstract class ScheduledServiceBase : IService {
         private CancellationTokenSource _cancellationTokenSource;
 
-        protected abstract TimeSpan Interval { get; }
+        protected abstract TimeSpan PlanNextExecution();
+
         protected abstract void Execute();
 
         public void Start() {
-            _cancellationTokenSource = Scheduler.Interval(Interval, Execute);
+            _cancellationTokenSource = Scheduler.Interval(PlanNextExecution, Execute, PlanNextExecution());
         }
 
         public void Stop() {

@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Linq;
-using MHTemperature.Service.Data;
+using MHTemperature.Service.Data.Context;
 using Nancy;
 using Newtonsoft.Json;
 
 namespace MHTemperature.Service.Web {
     public class TemperatureModule : NancyModule {
         /// <summary>
-        /// Database Connection Factory.
+        /// Temperature Context Factory.
         /// </summary>
-        private Database Db => new Database();
+        private TemperatureContext Db => new TemperatureContext();
 
         public TemperatureModule() {
             Get["/temperature"] = x => Json(Temperature());
-            Get["/temperature/{id:int}"] = x => Json(Temperature((int)x.id));
             Get["/temperature/{measuredAt:datetime}"] = x => Json(Temperature((DateTime)x.measuredAt));
 
             Get["/temperatures"] = x => Json(Temperatures());
@@ -23,34 +21,19 @@ namespace MHTemperature.Service.Web {
         }
 
         public object Temperature() {
-            return Db.Temperatures
-                    .OrderByDescending(x => x.MeasuredAt)
-                    .FirstOrDefault();
-        }
-
-        public object Temperature(int id) {
-            return Db.Temperatures
-                    .FirstOrDefault(x => x.Id == id);
+            return Db.GetLastTemperature();
         }
 
         public object Temperature(DateTime measuredAt) {
-            return Db.Temperatures
-                    .FirstOrDefault(x => x.MeasuredAt == measuredAt);
+            return Db.GetTemperatureByMeasuredAt(measuredAt);
         }
 
         public object Temperatures() {
-            return Db.Temperatures
-                    .OrderBy(x => x.MeasuredAt)
-                    .GroupBy(x => x.MeasuredAt)
-                    .Select(x => x.FirstOrDefault());
+            return Db.GetAllTemperatures();
         }
 
         public object Temperatures(DateTime from, DateTime to) {
-            return Db.Temperatures
-                    .Where(x => x.MeasuredAt >= from && x.MeasuredAt <= to)
-                    .OrderBy(x => x.MeasuredAt)
-                    .GroupBy(x => x.MeasuredAt)
-                    .Select(x => x.FirstOrDefault());
+            return Db.GetTemperaturesMeasuredInRange(from, to);
         }
 
         private Response Json(object obj) {

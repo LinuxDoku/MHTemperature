@@ -50,6 +50,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetrievalPlanner.cs" />
     <Compile Include="TemperatureService.cs" />
     <Compile Include="Temperature.cs" />
     <Compile Include="Contracts\ITemperature.cs" />

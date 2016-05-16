@@ -3,26 +3,34 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace MHTemperature.Service.Infrastructure {
-    public class Scheduler {
+    public static class Scheduler {
         /// <summary>
-        /// Execute the action in the given interval.
+        /// Execute the action and plan the next execution afterwards.
         /// </summary>
-        /// <param name="interval"></param>
+        /// <param name="planNextExecution"></param>
         /// <param name="action"></param>
+        /// <param name="initialTimeout"></param>
         /// <returns></returns>
-        public static CancellationTokenSource Interval(TimeSpan interval, Action action) {
-            var canellationToken = new CancellationTokenSource();
+        public static CancellationTokenSource Interval(Func<TimeSpan> planNextExecution, Action action, TimeSpan? initialTimeout=null) {
+            var cancellationToken = new CancellationTokenSource();
             Action wrappedAction = null;
 
             wrappedAction = async () => {
                 action();
-                await Task.Delay(interval, canellationToken.Token);
-                await Task.Run(wrappedAction, canellationToken.Token);
+                await Task.Delay(planNextExecution(), cancellationToken.Token);
+                await Task.Run(wrappedAction, cancellationToken.Token);
             };
 
-            Task.Run(wrappedAction, canellationToken.Token);
+            if (initialTimeout.HasValue) {
+                Task.Run(async () => {
+                    await Task.Delay(initialTimeout.Value, cancellationToken.Token);
+                    await Task.Run(wrappedAction, cancellationToken.Token);
+                }, cancellationToken.Token);
+            } else {
+                Task.Run(wrappedAction, cancellationToken.Token);
+            }
 
-            return canellationToken;
+            return cancellationToken;
         }
     }
 }

@@ -4,7 +4,7 @@ using MHTemperature.Contracts;
 
 namespace MHTemperature.Tests {
     [TestFixture]
-    public class TemperatureServiceTest {
+    public class TemperatureServiceTests {
         /// <summary>
         /// NOTE: Assert that you are connected to the internet when running this test.
         /// </summary>
