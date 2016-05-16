@@ -16,6 +16,10 @@ namespace MHTemperature.Service.Infrastructure {
             Action wrappedAction = null;
 
             wrappedAction = async () => {
+                if (cancellationToken.IsCancellationRequested) {
+                    return;
+                }
+
                 action();
                 await Task.Delay(planNextExecution(), cancellationToken.Token);
                 await Task.Run(wrappedAction, cancellationToken.Token);
