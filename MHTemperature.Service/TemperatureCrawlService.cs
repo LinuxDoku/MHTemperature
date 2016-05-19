@@ -11,10 +11,19 @@ namespace MHTemperature.Service {
         }
 
         protected override string Name => nameof(TemperatureCrawlService);
+        protected TimeSpan MinDelay = TimeSpan.FromMinutes(5);
+        protected DateTime LastExecution;
 
         protected override TimeSpan PlanNextExecution() {
             var lastTemperature = CreateContext().GetLastTemperature();
-            return RetrievalPlanner.Next(lastTemperature, DateTime.Now);
+            var next = RetrievalPlanner.Next(lastTemperature, DateTime.Now);
+
+            // min delay protection
+            if (LastExecution != null && DateTime.Now.Add(next) < LastExecution.Add(MinDelay)) {
+                return MinDelay;
+            }
+
+            return next;
         }
 
         protected override void Execute() {
@@ -37,6 +46,8 @@ namespace MHTemperature.Service {
             catch (Exception ex) {
                 Logger.Error($"Could not save temperature to database! {temperature}", ex);
             }
+
+            LastExecution = DateTime.Now;
         }
     }
 }
