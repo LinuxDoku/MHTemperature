@@ -9,7 +9,7 @@ Derzeit läuft die Anwendung auf einem Windows Server 2012 R2 und stellt die Dat
 ## System Anforderungen
 
 - .NET 4.5.2 oder aktueller als Runtime
-- PostgreSQL als Datenspeicher
+- PostgreSQL 9.5 oder aktueller als Datenspeicher
 
 ## Technisches
 
