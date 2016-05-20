@@ -46,7 +46,7 @@ namespace MHTemperature {
         /// </summary>
         /// <returns>The parsed temperature.</returns>
         /// <param name="html">Html document as string.</param>
-        private ITemperature ParseHtml(string html) {
+        public ITemperature ParseHtml(string html) {
             if (string.IsNullOrEmpty(html)) {
                 return null;
             }
@@ -117,8 +117,8 @@ namespace MHTemperature {
         /// </summary>
         /// <returns>The value.</returns>
         /// <param name="value">Value.</param>
-        private float ParseTemperature(string value) {
-            var result = Regex.Match(value, @"([0-9]{1,2}\,[0-9]{1,2})").Value;
+        public float ParseTemperature(string value) {
+            var result = Regex.Match(value, @"([0-9]{1,2}(\,[0-9]{1,2})?)").Value;
             return float.Parse(result, CultureInfo.GetCultureInfoByIetfLanguageTag("de")); // force "de" on machines with other culture
         }
     }

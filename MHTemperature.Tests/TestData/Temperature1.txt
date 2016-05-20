@@ -1,0 +1,10 @@
+﻿<HTML>
+<HEAD><TITLE>Wassertemperatur Freibad</TITLE>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+</HEAD>
+
+<link rel="stylesheet" href="/phpSkripte/indiv.styles_2/wirtschaft.css" type="text/css">
+
+<TABLE border=0 width=500 cellSpacing=2 cellPadding=4><tr><td width=300>            <FONT face=Arial size=3><b>Badewassertemperaturen</b></td><td width=150 align=right><FONT face=Arial size=3><b>19.5.2016,  16:52 Uhr</b></td></tr><tr><td width=300><b>&nbsp;</b></td><td width=150><b>&nbsp;</b></td></tr><tr><td width=300>            <FONT face=Arial size=3><b>Becken</b></td><td width=150 align=right><FONT face=Arial size=3><b>Temperatur</b></td></tr><tr><td width=300>            <FONT face=Arial size=3>Schwimmer-, Sprungbecken</td><td width=150 align=right><FONT face=Arial size=3><b> 17,31 �C</b></td></tr><tr><td width=300>            <FONT face=Arial size=3>Nichtschwimmer-, Rutschenbecken</td><td width=150 align=right><FONT face=Arial size=3><b> 15,4 �C</b></td></tr><tr><td width=300>            <FONT face=Arial size=3>Kinderbecken</td><td width=150 align=right><FONT face=Arial size=3><b> 15 �C</b></td></tr></table>
