@@ -4,7 +4,7 @@ gibt es nun auch einen REST Web Service, der die Daten automatisch aggregiert un
 
 Derzeit läuft die Anwendung auf einem Windows Server 2012 R2 und stellt die Daten für eine Android App bereit.
 
-![Android App Screenshot](https://github.com/LinuxDoku/MHTemperature/raw/master/Android-App.png "Android App")
+<img src="https://github.com/LinuxDoku/MHTemperature/raw/master/Android-App.png" width="300" title="Android App" alt="Android App Sceenshot">
 
 ## System Anforderungen
 
