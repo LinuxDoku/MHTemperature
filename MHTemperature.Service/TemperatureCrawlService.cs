@@ -41,13 +41,22 @@ namespace MHTemperature.Service {
 
             try {
                 temperature = Temperature.CreateFrom(current);
-                CreateContext().Save(temperature);
+                SaveWhenNotAlreadyExists(temperature);
             }
             catch (Exception ex) {
                 Logger.Error($"Could not save temperature to database! {temperature}", ex);
             }
 
             LastExecution = DateTime.Now;
+        }
+
+        private void SaveWhenNotAlreadyExists(Temperature temperature) {
+            var context = CreateContext();
+            var lastTemperature = context.GetLastTemperature();
+
+            if (lastTemperature.MeasuredAt != temperature.MeasuredAt) {
+                context.Save(temperature);
+            }
         }
     }
 }

@@ -29,18 +29,12 @@ namespace MHTemperature.Service.Data.Context {
 
         public IEnumerable<Temperature> GetAllTemperatures() {
             return Db.Temperatures
-                     .OrderBy(x => x.MeasuredAt)
-                     .GroupBy(x => x.MeasuredAt)
-                     .Select(x => x.FirstOrDefault())
                      .OrderBy(x => x.MeasuredAt);
         }
 
         public IEnumerable<Temperature> GetTemperaturesMeasuredInRange(DateTime from, DateTime to) {
             return Db.Temperatures
                      .Where(x => x.MeasuredAt >= from && x.MeasuredAt <= to)
-                     .OrderBy(x => x.MeasuredAt)
-                     .GroupBy(x => x.MeasuredAt)
-                     .Select(x => x.FirstOrDefault())
                      .OrderBy(x => x.MeasuredAt);
         }
     }
