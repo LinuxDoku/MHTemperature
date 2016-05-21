@@ -54,7 +54,7 @@ namespace MHTemperature.Service {
             var context = CreateContext();
             var lastTemperature = context.GetLastTemperature();
 
-            if (lastTemperature.MeasuredAt != temperature.MeasuredAt) {
+            if (lastTemperature == null || lastTemperature.MeasuredAt != temperature.MeasuredAt) {
                 context.Save(temperature);
             }
         }
