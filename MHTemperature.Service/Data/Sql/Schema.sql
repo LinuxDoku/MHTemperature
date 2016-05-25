@@ -54,6 +54,7 @@ WITH (
   OIDS=FALSE
 );
 
+-- create weather_station sequence
 CREATE SEQUENCE IF NOT EXISTS public.weather_station_id_seq
   INCREMENT 1
   MINVALUE 1
@@ -61,6 +62,7 @@ CREATE SEQUENCE IF NOT EXISTS public.weather_station_id_seq
   START 1
   CACHE 1;
 
+-- create weather_stations table
 CREATE TABLE IF NOT EXISTS public.weather_stations (
   id integer NOT NULL DEFAULT nextval('weather_station_id_seq'::regclass),
   name varchar(200),
