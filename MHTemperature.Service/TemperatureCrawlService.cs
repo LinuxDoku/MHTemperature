@@ -19,7 +19,7 @@ namespace MHTemperature.Service {
             var next = RetrievalPlanner.Next(lastTemperature, DateTime.Now);
 
             // min delay protection
-            if (LastExecution != null && DateTime.Now.Add(next) < LastExecution.Add(MinDelay)) {
+            if (DateTime.Now.Add(next) < LastExecution.Add(MinDelay)) {
                 return MinDelay;
             }
 
