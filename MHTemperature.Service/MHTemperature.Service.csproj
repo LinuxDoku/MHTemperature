@@ -111,6 +111,7 @@
     <Compile Include="Data\Model\WeatherStation.cs" />
     <Compile Include="Extensions\AppDomainExtensions.cs" />
     <Compile Include="Extensions\MeasureEnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\AssemblyResources.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\Scheduler.cs" />
     <Compile Include="Infrastructure\ScheduledServiceBase.cs" />

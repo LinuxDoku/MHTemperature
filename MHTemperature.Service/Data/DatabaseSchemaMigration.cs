@@ -16,15 +16,7 @@ namespace MHTemperature.Service.Data {
 
                 // execute schema script on database
                 try {
-                    string script;
-
-                    var assembly = Assembly.GetExecutingAssembly();
-                    var resourceName = $"{typeof(Database).Namespace}.Sql.Schema.sql";
-
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-                    using (StreamReader reader = new StreamReader(stream)) {
-                        script = reader.ReadToEnd();
-                    }
+                    var script = AssemblyResources.GetResource($"{typeof(Database).Namespace}.Sql.Schema.sql");
 
                     if (!string.IsNullOrEmpty(script)) {
                         database.Database.ExecuteSqlCommand(script);
