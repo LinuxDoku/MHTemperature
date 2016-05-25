@@ -1,0 +1,3 @@
+[submodule "Dependencies/DWD"]
+	path = Dependencies/DWD
+	url = https://github.com/LinuxDoku/DWD
