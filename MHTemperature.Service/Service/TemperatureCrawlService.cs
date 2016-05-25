@@ -17,6 +17,10 @@ namespace MHTemperature.Service.Service {
         protected override TimeSpan MinDelay => TimeSpan.FromMinutes(5);
 
         protected override TimeSpan PlanNextExecution() {
+            if (LastExecution == default(DateTime)) {
+                return TimeSpan.Zero;
+            }
+
             var lastTemperature = CreateContext().GetLastTemperature();
             var next = RetrievalPlanner.Next(lastTemperature, DateTime.Now);
 

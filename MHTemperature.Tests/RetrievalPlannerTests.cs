@@ -66,17 +66,5 @@ namespace MHTemperature.Tests {
 
             Assert.AreEqual(TimeSpan.FromHours(10).Add(TimeSpan.FromMinutes(53)), timeSpan);
         }
-
-        [Test]
-        public void Should_Plan_Correct_Retrieval_When_Last_Measure_Is_From_Yesterday_And_Its_After_20_00_PM() {
-            var temperatureMock = new Mock<ITemperature>();
-            temperatureMock.Setup(x => x.MeasuredAt).Returns(new DateTime(2016, 5, 15));
-            var temperature = temperatureMock.Object;
-            var dateTime = new DateTime(2016, 5, 16, 20, 00, 00);
-
-            var timeSpan = RetrievalPlanner.Next(temperature, dateTime);
-
-            Assert.AreEqual(TimeSpan.Zero, timeSpan);
-        }
     }
 }
