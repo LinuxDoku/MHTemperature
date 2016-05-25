@@ -54,7 +54,7 @@ WITH (
   OIDS=FALSE
 );
 
--- create weather_station sequence
+-- create weather_stations sequence
 CREATE SEQUENCE IF NOT EXISTS public.weather_station_id_seq
   INCREMENT 1
   MINVALUE 1

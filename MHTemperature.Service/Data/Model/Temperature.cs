@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MHTemperature.Contracts;
+using MHTemperature.Service.Contract;
 
 namespace MHTemperature.Service.Data.Model {
     [Table("temperatures", Schema="public")]
-    public class Temperature : ITemperature {
+    public class Temperature : ITemperature, IMeasure {
         [Key]
         [Column("id")]
         public int Id { get; set; }

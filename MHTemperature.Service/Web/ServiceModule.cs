@@ -1,5 +1,4 @@
 ﻿using MHTemperature.Service.Infrastructure;
-using Nancy;
 
 namespace MHTemperature.Service.Web {
     public class ServiceModule : ApiModuleBase {

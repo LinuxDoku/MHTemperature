@@ -3,7 +3,9 @@ using MHTemperature.Service.Data.Model;
 
 namespace MHTemperature.Service.Data {
     public class Database : DbContext {
-        public Database() : base("freibadmh") {}
+        public Database() : base("freibadmh") {
+            DatabaseSchemaMigration.Migrate(this);
+        }
         
         /// <summary>
         /// Water temperatures.

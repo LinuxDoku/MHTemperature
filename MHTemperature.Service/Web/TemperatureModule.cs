@@ -31,7 +31,7 @@ namespace MHTemperature.Service.Web {
         }
 
         public object Temperatures(DateTime from, DateTime to) {
-            return Db.GetTemperaturesMeasuredInRange(from, to);
+            return Db.GetTemperaturesMeasuredBetween(from, to);
         }
     }
 }

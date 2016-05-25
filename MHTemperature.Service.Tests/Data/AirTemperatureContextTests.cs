@@ -24,5 +24,12 @@ namespace MHTemperature.Service.Tests.Data {
             
             Context.Save(airTemperature);
         }
+
+        [Test]
+        public void Should_Not_Throw_Exception_On_GetLastTemperature() {
+            Assert.DoesNotThrow(() => {
+                Context.GetLastAirTemperature();
+            });
+        }
     }
 }

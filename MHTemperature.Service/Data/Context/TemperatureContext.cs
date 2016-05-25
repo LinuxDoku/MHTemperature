@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using MHTemperature.Service.Data.Model;
+using MHTemperature.Service.Extensions;
 
 namespace MHTemperature.Service.Data.Context {
     public class TemperatureContext : ContextBase<Temperature> {
         protected override DbSet<Temperature> DbSet => Db.Temperatures;
 
         public Temperature GetLastTemperature() {
-            return Db.Temperatures
-                     .OrderByDescending(x => x.MeasuredAt)
-                     .FirstOrDefault();
+            return DbSet.OrderByDescending(x => x.MeasuredAt)
+                        .FirstOrDefault();
         }
 
         public Temperature GetTemperatureByMeasuredAt(DateTime measuredAt) {
-            return Db.Temperatures
-                     .FirstOrDefault(x => x.MeasuredAt == measuredAt);
+            return DbSet.FirstOrDefault(x => x.MeasuredAt == measuredAt);
         }
 
         public IEnumerable<Temperature> GetAllTemperatures() {
-            return Db.Temperatures
-                     .OrderBy(x => x.MeasuredAt);
+            return DbSet.OrderBy(x => x.MeasuredAt);
         }
 
-        public IEnumerable<Temperature> GetTemperaturesMeasuredInRange(DateTime from, DateTime to) {
-            return Db.Temperatures
-                     .Where(x => x.MeasuredAt >= from && x.MeasuredAt <= to)
-                     .OrderBy(x => x.MeasuredAt);
+        public IEnumerable<Temperature> GetTemperaturesMeasuredBetween(DateTime from, DateTime to) {
+            return DbSet.Between(from, to).OrderBy(x => x.MeasuredAt);
         }
     }
 }

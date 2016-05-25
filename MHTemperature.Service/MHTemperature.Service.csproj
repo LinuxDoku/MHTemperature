@@ -98,16 +98,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IMeasure.cs" />
     <Compile Include="Contract\IService.cs" />
     <Compile Include="Data\Context\AirTempeatureContext.cs" />
     <Compile Include="Data\Context\ContextBase.cs" />
     <Compile Include="Data\Context\TemperatureContext.cs" />
     <Compile Include="Data\Context\WeatherStationContext.cs" />
     <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\DatabaseSchemaMigration.cs" />
     <Compile Include="Data\Model\Temperature.cs" />
     <Compile Include="Data\Model\AirTemperature.cs" />
     <Compile Include="Data\Model\WeatherStation.cs" />
     <Compile Include="Extensions\AppDomainExtensions.cs" />
+    <Compile Include="Extensions\MeasureEnumerableExtensions.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\Scheduler.cs" />
     <Compile Include="Infrastructure\ScheduledServiceBase.cs" />
@@ -121,13 +124,15 @@
     <Compile Include="Web\ServiceModule.cs" />
     <Compile Include="Web\Startup.cs" />
     <Compile Include="Web\TemperatureModule.cs" />
+    <Compile Include="Web\AirTemperatureModule.cs" />
+    <Compile Include="Web\WeatherStationModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Sql\Schema.sql" />
+    <EmbeddedResource Include="Data\Sql\Schema.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\DWD\DWD.Crawler\DWD.Crawler.csproj">

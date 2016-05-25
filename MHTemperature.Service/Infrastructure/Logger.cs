@@ -9,7 +9,6 @@ namespace MHTemperature.Service.Infrastructure {
     public static class Logger {
         static Logger() {
             Trace.Listeners.Add(new EventLogTraceListener(Assembly.GetEntryAssembly().GetName().Name));
-
             if (Environment.UserInteractive) {
                 Trace.Listeners.Add(new ConsoleTraceListener());
             }

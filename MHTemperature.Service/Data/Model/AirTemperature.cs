@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using DWD.Crawler.Contract.Model;
+using MHTemperature.Service.Contract;
 
 namespace MHTemperature.Service.Data.Model {
     [Table("air_temperatures", Schema = "public")]
-    public class AirTemperature : IAirTemperature {
+    public class AirTemperature : IAirTemperature, IMeasure {
         [Key, Column("id")]
         public int AirTemperatureId { get; set; }
         
