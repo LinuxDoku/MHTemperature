@@ -4,7 +4,7 @@ using MHTemperature.Service.Contract;
 using MHTemperature.Service.Web;
 using Microsoft.Owin.Hosting;
 
-namespace MHTemperature.Service {
+namespace MHTemperature.Service.Service {
     public class WebService : IService {
         public void Start() {
             var url = ConfigurationManager.AppSettings["webServiceUrl"];

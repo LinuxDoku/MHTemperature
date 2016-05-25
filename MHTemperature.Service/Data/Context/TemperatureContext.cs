@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using MHTemperature.Service.Data.Model;
 
 namespace MHTemperature.Service.Data.Context {
-    public class TemperatureContext {
-        private Database Db { get; set; }
-
-        public TemperatureContext() {
-            Db = new Database();
-        }
-
-        public void Save(Temperature temperature) {
-            Db.Temperatures.Add(temperature);
-            Db.SaveChanges();
-        }
+    public class TemperatureContext : ContextBase<Temperature> {
+        protected override DbSet<Temperature> DbSet => Db.Temperatures;
 
         public Temperature GetLastTemperature() {
             return Db.Temperatures

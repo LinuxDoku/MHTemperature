@@ -1,6 +1,7 @@
 ﻿using System;
 using MHTemperature.Service.Extensions;
 using MHTemperature.Service.Infrastructure;
+using MHTemperature.Service.Service;
 using Topshelf;
 
 namespace MHTemperature.Service {
