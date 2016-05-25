@@ -13,6 +13,7 @@ namespace MHTemperature.Service {
                 host.Service<ServiceHost>(setup => {
                     setup.ConstructUsing(name => new ServiceHost(
                         new TemperatureCrawlService(),
+                        new WeatherCrawlService(),
                         new WebService()
                     ));
                     

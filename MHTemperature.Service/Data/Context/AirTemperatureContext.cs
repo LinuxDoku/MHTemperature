@@ -6,7 +6,7 @@ using MHTemperature.Service.Data.Model;
 using MHTemperature.Service.Extensions;
 
 namespace MHTemperature.Service.Data.Context {
-    public class AirTempeatureContext : ContextBase<AirTemperature> {
+    public class AirTemperatureContext : ContextBase<AirTemperature> {
         protected override DbSet<AirTemperature> DbSet => Db.AirTemperatures;
 
         public AirTemperature GetLastAirTemperature() {

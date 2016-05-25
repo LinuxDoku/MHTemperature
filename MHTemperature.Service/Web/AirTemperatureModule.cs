@@ -6,7 +6,7 @@ namespace MHTemperature.Service.Web {
         /// <summary>
         /// Database Context Factory.
         /// </summary>
-        private AirTempeatureContext Db => new AirTempeatureContext();
+        private AirTemperatureContext Db => new AirTemperatureContext();
 
         public AirTemperatureModule() : base("/weather") {
             Get["/airtemperature"] = x => Json(AirTemperature());

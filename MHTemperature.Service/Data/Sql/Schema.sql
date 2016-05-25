@@ -65,6 +65,7 @@ CREATE SEQUENCE IF NOT EXISTS public.weather_station_id_seq
 -- create weather_stations table
 CREATE TABLE IF NOT EXISTS public.weather_stations (
   id integer NOT NULL DEFAULT nextval('weather_station_id_seq'::regclass),
+  station_id integer,
   name varchar(200),
   state varchar(100),
   geo_longitude numeric(6,4),
@@ -73,3 +74,13 @@ CREATE TABLE IF NOT EXISTS public.weather_stations (
 );
 
 COMMIT;
+
+-- add station_id to weather_stations via pgsql
+do $$
+begin
+	IF NOT EXISTS (SELECT 0 FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'weather_stations' AND column_name = 'station_id')
+	THEN
+		ALTER TABLE public.weather_stations ADD COLUMN station_id integer;
+	END IF;
+end 
+$$

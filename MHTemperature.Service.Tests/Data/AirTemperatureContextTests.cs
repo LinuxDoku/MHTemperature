@@ -8,8 +8,8 @@ namespace MHTemperature.Service.Tests.Data {
     /// Integration tests for the data context of AirTemperature model.
     /// </summary>
     [TestFixture]
-    public class AirTemperatureContextTests : ContextTestBase<AirTempeatureContext, AirTemperature> {
-        protected override AirTempeatureContext Context => new AirTempeatureContext();
+    public class AirTemperatureContextTests : ContextTestBase<AirTemperatureContext, AirTemperature> {
+        protected override AirTemperatureContext Context => new AirTemperatureContext();
 
         [Test]
         public void Should_Save_AirTemperature_To_Database() {

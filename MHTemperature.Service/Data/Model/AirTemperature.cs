@@ -7,6 +7,16 @@ using MHTemperature.Service.Contract;
 namespace MHTemperature.Service.Data.Model {
     [Table("air_temperatures", Schema = "public")]
     public class AirTemperature : IAirTemperature, IMeasure {
+        public AirTemperature() {}
+
+        public AirTemperature(IAirTemperature airTempeature) {
+            MeasuredAt = airTempeature.MeasuredAt;
+            QualityLevel = airTempeature.QualityLevel;
+            Temperature = airTempeature.Temperature;
+            RelativeHumidity = airTempeature.RelativeHumidity;
+            Station = new WeatherStation(airTempeature.Station);
+        }
+
         [Key, Column("id")]
         public int AirTemperatureId { get; set; }
         
